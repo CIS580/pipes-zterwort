@@ -1,5 +1,8 @@
 "use strict";
 
+var bgmusic = new Audio();
+bgmusic.src = 'assets/background-music.wav'
+bgmusic.volume = .3;
 /**
  * @module exports the Game class
  */
@@ -48,6 +51,7 @@ Game.prototype.loop = function(newTime) {
   var elapsedTime = newTime - this.oldTime;
   this.oldTime = newTime;
 
+  bgmusic.play();
   if(!this.paused) this.update(elapsedTime);
   this.render(elapsedTime, this.frontCtx);
 
